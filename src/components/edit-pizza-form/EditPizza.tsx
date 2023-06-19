@@ -1,14 +1,14 @@
 import {ChangeEvent, FC, FormEvent, useState} from "react"
-import {AddPizzaForm, Pizza} from "../interfaces";
-
+import {EditPizzaForm, Pizza} from "../interfaces";
+import styles from "./EditPizza.module.scss"
 const initState = {
   title: "",
-  price: 0,
-  picture: ""
+  price: "",
+  image: ""
 }
 
-export const EditPizza: FC<AddPizzaForm> = ({addPizza}) => {
-  const [newPizza, setNewPizza] = useState<Pizza>(initState)
+export const EditPizza: FC<EditPizzaForm> = ({pizza, addPizza}) => {
+  const [newPizza, setNewPizza] = useState<Pizza>(pizza ? pizza : initState)
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const {name, value} = event.target
@@ -20,18 +20,18 @@ export const EditPizza: FC<AddPizzaForm> = ({addPizza}) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const { title, price, picture} = newPizza
+    const { title, price, image} = newPizza
 
-    if(!title || !price || !picture) {
+    if(!title || !price || !image) {
       throw new Error('Invalid field value');
     }
 
-    addPizza({...newPizza, price: Number(newPizza.price)})
+    // addPizza({...newPizza, price: Number(newPizza.price)})
     setNewPizza(initState)
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.edit}>
       <input type="text"
              name="title"
              placeholder="Name"
@@ -40,18 +40,30 @@ export const EditPizza: FC<AddPizzaForm> = ({addPizza}) => {
       />
       <input type="text"
              name="price"
-             placeholder="0"
+             placeholder="Price"
              onChange={handleChange}
              value={newPizza.price}
       />
       <input type="text"
-             name="picture"
-             placeholder="picture"
+             name="image"
+             placeholder="Img"
              onChange={handleChange}
-             value={newPizza.picture}
+             value={newPizza.image}
+      />
+      <input type="text"
+             name="description"
+             placeholder="Description"
+             onChange={handleChange}
+             value={newPizza.description}
+      />
+      <input type="text"
+             name="weight"
+             placeholder="Weight"
+             onChange={handleChange}
+             value={newPizza.weight}
       />
       <button type="submit"
-      >+ Добавить в меню
+      >Add to Menu
       </button>
     </form>
   )

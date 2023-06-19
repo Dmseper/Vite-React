@@ -1,29 +1,27 @@
-import {useState, FC} from 'react'
+import {FC, useState} from 'react'
 import './App.scss'
-import {EditPizza} from "./components/edit-pizza-form/EditPizza";
 
 import {Pizza} from "./components/interfaces";
+
 import {PizzasDisplay} from "./components/pizzas-display/PizzasDisplay";
+import {EditPizza} from "./components/edit-pizza-form/EditPizza";
+import Navigation from "./components/common/navigation/Navigation";
 
 const App: FC = () => {
-  const [pizzasList] = useState<Map<string, Pizza>>(new Map())
+  const [pizzasList, setPizzasList] = useState<Pizza[]>([])
 
-  const addPizza = (newPizza: Pizza ) => {
-    pizzasList.set(newPizza.title, newPizza)
-    console.log([...pizzasList.values()])
+  const savePizza = (newPizza: Pizza) => {
+    setPizzasList(pizzasList.map(pizza => pizza.id === newPizza.id ? newPizza : pizza) ?? [])
   }
+
   return (
-    <>
-      <div className="app">
-        <div className="wrap">
-          <div className="header">
-            Pizza House
-          </div>
-          <EditPizza addPizza ={addPizza}/>
-          <PizzasDisplay pizzaList={[...pizzasList.values()]}/>
-        </div>
+    <div className="app">
+      <Navigation/>
+      <div className="work-space">
+        <EditPizza savePizza={savePizza}/>
+        <PizzasDisplay pizzaList={pizzasList}/>
       </div>
-    </>
+    </div>
   )
 }
 
