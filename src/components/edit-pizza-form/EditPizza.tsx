@@ -1,14 +1,17 @@
 import {ChangeEvent, FC, FormEvent, useState} from "react"
 import {EditPizzaForm, Pizza} from "../interfaces";
 import styles from "./EditPizza.module.scss"
+
 const initState = {
   title: "",
   price: "",
-  image: ""
+  image: "",
+  description: "",
+  weight: "",
 }
 
-export const EditPizza: FC<EditPizzaForm> = ({pizza, addPizza}) => {
-  const [newPizza, setNewPizza] = useState<Pizza>(pizza ? pizza : initState)
+export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
+  const [newPizza, setNewPizza] = useState<Pizza>(pizza ?? initState)
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const {name, value} = event.target
@@ -20,13 +23,15 @@ export const EditPizza: FC<EditPizzaForm> = ({pizza, addPizza}) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const { title, price, image} = newPizza
+    const {title, price, image} = newPizza
 
-    if(!title || !price || !image) {
+    if (!title || !price || !image) {
       throw new Error('Invalid field value');
     }
 
-    // addPizza({...newPizza, price: Number(newPizza.price)})
+    if (savePizza) {
+      savePizza({...newPizza, price: Number(newPizza.price), weight: Number(newPizza.weight)})
+    }
     setNewPizza(initState)
   }
 

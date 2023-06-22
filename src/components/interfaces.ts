@@ -5,7 +5,7 @@ export interface Pizza {
   title: string
   price: number | string
   description?: string
-  weight?: number
+  weight?: number | string
   image?: string
   fullSizeImage?: string
 }
@@ -16,8 +16,8 @@ export interface Ingredient {
 }
 
 export interface EditPizzaForm {
-  pizza: Pizza
-  savePizza: (newPizza: Pizza) => void
+  pizza?: Pizza
+  savePizza?: (newPizza: Pizza) => void
 }
 
 export interface PizzasDisp {
