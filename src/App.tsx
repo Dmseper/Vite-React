@@ -8,13 +8,15 @@ import {EditPizza} from "./components/edit-pizza-form/EditPizza";
 import Navigation from "./components/common/navigation/Navigation";
 
 const App: FC = () => {
-  const [pizzasList, setPizzasList] = useState<Map<string ,Pizza>>(new Map())
+  const [pizzasList, setPizzasList] = useState<Pizza[]>([])
 
   const savePizza = (newPizza: Pizza) => {
 
-    setPizzasList(pizzasList.set(newPizza.title , newPizza))
-
-    console.log("check",pizzasList)
+    if (!pizzasList.find(pizzaItem => pizzaItem.title === newPizza.title)) {
+      setPizzasList([...pizzasList, newPizza])
+      return
+    }
+    setPizzasList(pizzasList.map(oldVersionPizza => oldVersionPizza.title === newPizza.title ? newPizza : oldVersionPizza))
   }
 
   return (
@@ -22,7 +24,7 @@ const App: FC = () => {
       <Navigation/>
       <div className="work-space">
         <EditPizza savePizza={savePizza}/>
-        <PizzasDisplay pizzaList={[...pizzasList.values()]}/>
+        <PizzasDisplay pizzaList={pizzasList}/>
       </div>
     </div>
   )
