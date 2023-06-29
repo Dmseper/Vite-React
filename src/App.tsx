@@ -7,6 +7,7 @@ import {PizzasDisplay} from "./components/pizzas-display/PizzasDisplay";
 import {EditPizza} from "./components/edit-pizza-form/EditPizza";
 import Navigation from "./components/common/navigation/Navigation";
 import {dataPizzas} from "./DataPizzas";
+import {FluentProvider, webDarkTheme} from "@fluentui/react-components";
 const App: FC = () => {
   const [pizzasList, setPizzasList] = useState<Pizza[]>([...dataPizzas] as Pizza[])
 
@@ -20,6 +21,7 @@ const App: FC = () => {
   }
 
   return (
+    <FluentProvider theme={webDarkTheme}>
     <div className="app">
       <Navigation/>
       <div className="work-space">
@@ -27,6 +29,7 @@ const App: FC = () => {
         <PizzasDisplay pizzaList={pizzasList}/>
       </div>
     </div>
+    </FluentProvider>
   )
 }
 
