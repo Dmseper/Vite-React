@@ -1,4 +1,4 @@
-[
+export const dataPizzas = [
   {
     "id": "1",
     "title": "Pepperoni",

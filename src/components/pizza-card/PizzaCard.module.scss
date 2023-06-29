@@ -1,14 +1,17 @@
 .pizza {
   background-color: #213547;
-  height: 400px;
-  width: 280px;
+  min-height: 400px;
+  min-width: 280px;
   padding: 10px 20px;
   display: flex;
   gap: 10px;
   flex-direction: column;
   border-radius: 20px;
 }
-
+.pizza img {
+  width: 300px ;
+  border-radius: 100%;
+}
 .pizzaControls {
   margin-top: auto;
   margin-bottom: 10px;

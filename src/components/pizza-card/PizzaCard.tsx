@@ -29,7 +29,7 @@ export const PizzaCard: FC<PizzaCards> = ({pizza}) => {
     </div>
 
       {
-        edit ? <EditPizza/> : null
+        edit ? <EditPizza pizza={pizza}/> : null
       }
 
     </>

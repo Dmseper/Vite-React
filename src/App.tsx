@@ -6,9 +6,9 @@ import {Pizza} from "./components/interfaces";
 import {PizzasDisplay} from "./components/pizzas-display/PizzasDisplay";
 import {EditPizza} from "./components/edit-pizza-form/EditPizza";
 import Navigation from "./components/common/navigation/Navigation";
-
+import {dataPizzas} from "./DataPizzas";
 const App: FC = () => {
-  const [pizzasList, setPizzasList] = useState<Pizza[]>([])
+  const [pizzasList, setPizzasList] = useState<Pizza[]>([...dataPizzas] as Pizza[])
 
   const savePizza = (newPizza: Pizza) => {
 

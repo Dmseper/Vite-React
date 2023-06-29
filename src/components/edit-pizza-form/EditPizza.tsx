@@ -2,6 +2,7 @@ import {ChangeEvent, FC, FormEvent, useState} from "react"
 import {EditPizzaForm, Pizza} from "../interfaces";
 import styles from "./EditPizza.module.scss"
 
+
 const initState = {
   title: "",
   price: "",
@@ -10,7 +11,7 @@ const initState = {
   weight: "",
 }
 
-export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
+export const    EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
   const [newPizza, setNewPizza] = useState<Pizza>(pizza ?? initState)
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +23,6 @@ export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
   }
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-
     const {title, price, image} = newPizza
 
     if (!title || !price || !image) {
@@ -34,6 +34,7 @@ export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
     }
     setNewPizza(initState)
   }
+  const typeBtn =() => pizza ? "Update pizza" : "Add to Menu"
 
   return (
     <form onSubmit={handleSubmit} className={styles.edit}>
@@ -68,7 +69,7 @@ export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
              value={newPizza.weight}
       />
       <button type="submit"
-      >Add to Menu
+      >{typeBtn()}
       </button>
     </form>
   )
