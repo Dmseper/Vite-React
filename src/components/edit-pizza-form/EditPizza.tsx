@@ -11,7 +11,7 @@ const initState = {
   weight: "",
 }
 
-export const    EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
+export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
   const [newPizza, setNewPizza] = useState<Pizza>(pizza ?? initState)
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +34,7 @@ export const    EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
     }
     setNewPizza(initState)
   }
-  const typeBtn =() => pizza ? "Update pizza" : "Add to Menu"
+  const typeBtn = () => pizza ? "Update pizza" : "Add to Menu"
 
   return (
     <form onSubmit={handleSubmit} className={styles.edit}>

@@ -17,8 +17,8 @@ const Navigation = () => {
     <div className={styles.navigation}>
       <div className={styles.working}>
         <Popover>
-          <PopoverTrigger >
-            <Button >
+          <PopoverTrigger>
+            <Button>
               <div className={styles.trigger}>
                 <h3>Working Time</h3>
                 <div>(click here)</div>

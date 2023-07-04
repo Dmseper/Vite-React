@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
-import { PageWrapper } from '../../styles';
-import { colors, headerHeight } from '../../../shared/styles/constants';
-import { Button } from '../../../components/Button/Button';
+import {PageWrapper} from '../../styles';
+import {colors, headerHeight} from '../../../shared/styles/constants';
+import {Button} from '../../../components/Button/Button';
 
 export const DiscPageWrapper = styled(PageWrapper)`
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   height: calc(100vh - ${headerHeight});
   padding: 3rem 21rem 3rem 5rem;
   gap: 24px;
@@ -36,7 +36,7 @@ export const SearchBoxWrapper = styled('div')`
   align-items: center;
   justify-content: flex-start;
   margin-left: auto;
-  width: 200px;  
+  width: 200px;
 `;
 
 export const BreadcrumbsWrapper = styled('div')`
@@ -44,7 +44,7 @@ export const BreadcrumbsWrapper = styled('div')`
   flex-direction: row;
   align-items: flex-start;
   column-gap: 10px;
-  height: 21px;  
+  height: 21px;
   font-size: 18px;
   color: #D9D9D9;
 `;
@@ -59,10 +59,12 @@ export const ContentItemsWrapper = styled('div')`
   align-items: stretch;
   height: 100%;
   overflow: auto;
-  width: 100%;  
+  width: 100%;
 `;
 
-export const ContentItemWrapper = styled('div', {shouldForwardProp: prop => !['activeZoom'].includes(prop)})<{activeZoom?: boolean}>`
+export const ContentItemWrapper = styled('div', {shouldForwardProp: prop => !['activeZoom'].includes(prop)})<{
+  activeZoom?: boolean
+}>`
   width: 280px;
   height: 210px;
   background: #2A2D32;
@@ -71,13 +73,15 @@ export const ContentItemWrapper = styled('div', {shouldForwardProp: prop => !['a
   display: flex;
   flex-direction: column;
   transition: .3s;
+
   &:active {
     transition: .3s;
     scale: ${props => props.activeZoom ? 0.8 : 'unset'};
-  };
+  }
+;
 `;
 
-export const ItemActionWrapper = styled('div')`  
+export const ItemActionWrapper = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,21 +90,23 @@ export const ItemActionWrapper = styled('div')`
   padding-bottom: 24px;
 `;
 
-export const ItemActionIcon = styled('div')`  
+export const ItemActionIcon = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
 `;
 
-export const ItemActionTitle = styled('div')`  
+export const ItemActionTitle = styled('div')`
   font-size: 16px;
   font-weight: 600;
   color: #CACACA;
   text-align: center;
 `;
 
-export const ProtocolCardWrapper = styled('div', {shouldForwardProp: (prop) => !['isFolder'].includes(prop)})<{isFolder?: boolean}>`  
+export const ProtocolCardWrapper = styled('div', {shouldForwardProp: (prop) => !['isFolder'].includes(prop)})<{
+  isFolder?: boolean
+}>`
   display: flex;
   flex-direction: column;
   row-gap: ${props => props.isFolder ? '24px' : '12px'};
@@ -109,7 +115,7 @@ export const ProtocolCardWrapper = styled('div', {shouldForwardProp: (prop) => !
   user-select: none;
 `;
 
-export const ProtocolCardTitle = styled('div')`  
+export const ProtocolCardTitle = styled('div')`
   display: flex;
   flex-direction: row;
   column-gap: 16px;
@@ -127,31 +133,33 @@ export const ProtocolCardTitle = styled('div')`
   }
 `;
 
-export const ProtocolCardName = styled('div')` 
+export const ProtocolCardName = styled('div')`
   font-size: 16px;
   font-weight: 600;
   color: #FFFFFF;
 `;
 
-export const ProtocolCardDate = styled('div')` 
+export const ProtocolCardDate = styled('div')`
   font-size: 14px;
   font-weight: 600;
   color: #FFFFFF;
 `;
 
-export const ProtocolCardText = styled('div')` 
+export const ProtocolCardText = styled('div')`
   font-size: 14px;
   font-weight: 400;
   color: #FFFFFF;
 `;
 
 
-export const ProtocolCardToolbarWrapper = styled('div', {shouldForwardProp: (prop) => !['isFolder'].includes(prop)})<{isFolder?: boolean}>`  
+export const ProtocolCardToolbarWrapper = styled('div', {shouldForwardProp: (prop) => !['isFolder'].includes(prop)})<{
+  isFolder?: boolean
+}>`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: ${props => props.isFolder ? 'center' : 'flex-end'};
-  height: ${props => props.isFolder ? 'auto' : '100%'} ;
+  height: ${props => props.isFolder ? 'auto' : '100%'};
 
   & div {
     display: flex;

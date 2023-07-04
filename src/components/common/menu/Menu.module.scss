@@ -1,14 +1,16 @@
-.menu ul  {
-    list-style-type: none;
-    display: flex;
-    gap: 20px;
-    flex-direction: row;
-    align-items: center;
+.menu ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  align-items: center;
 }
+
 .menu {
-    width: 100%;
-    margin-right: 40px;
+  width: 100%;
+  margin-right: 40px;
 }
+
 button {
-    width: 200px;
+  width: 200px;
 }

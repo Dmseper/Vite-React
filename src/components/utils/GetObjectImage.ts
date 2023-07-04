@@ -4,6 +4,7 @@ export const UploadImageSettings = {
   maxSize: 5242880, //5mb
   maxSizeInfoMessage: "Разрешается загрузить изображение в формате JPG или PNG до 5MB",
 }
+
 export interface ImageInterface {
   imageInBase64: string
   imageLink: string
