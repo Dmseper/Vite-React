@@ -10,6 +10,7 @@ import {dataPizzas} from "./DataPizzas";
 import {FluentProvider, webDarkTheme} from "@fluentui/react-components";
 import {setPizzasList} from "./store/PizzasList.slice.ts";
 import {useAppDispatch, useAppSelector} from "./hooks.ts";
+import {Routes, Route} from "react-router-dom";
 
 const App: FC = () => {
   const dispatch = useAppDispatch()
@@ -32,10 +33,10 @@ const App: FC = () => {
     <FluentProvider theme={webDarkTheme}>
       <div className="app">
         <Navigation/>
-        <div className="work-space">
-          <EditPizza savePizza={savePizza}/>
-          <PizzasDisplay pizzaList={pizzasList}/>
-        </div>
+        <Routes>
+          <Route path="/" element={  <PizzasDisplay pizzaList={pizzasList}/>}/>
+          <Route path="/edit-pizza" element={ <EditPizza savePizza={savePizza}/>}/>
+        </Routes>
       </div>
     </FluentProvider>
   )
