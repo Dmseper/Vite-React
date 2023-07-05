@@ -4,14 +4,8 @@ import {Link} from "react-router-dom";
 const Menu = () => {
   return (
     <div className={styles.menu}>
-      <ul>
-        <li>
-          <Link to='/'>Menu</Link>
-        </li>
-        <li>
-          <Link to='/edit-pizza'>Add new pizza</Link>
-        </li>
-      </ul>
+      <Link to='/'><h3>Menu</h3></Link>
+      <Link to='/edit-pizza'> <h3>Add Pizza</h3></Link>
     </div>
   );
 };

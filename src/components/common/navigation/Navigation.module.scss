@@ -5,8 +5,10 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
   grid-row-gap: 18px;
-  margin: 0 auto;
-
+  font-family: $headers-font;
+  font-size: 24px;
+  height: 90px;
+  background-color: rgba(25, 25, 25, 0.5);
   button {
     padding: 0;
     margin: 0;
@@ -18,7 +20,7 @@
   align-items: center;
   justify-content: center;
   font-family: $logo-font;
-  font-size: 32px;
+  font-size: 36px;
 }
 
 .contentHeader {
@@ -26,23 +28,5 @@
   text-align: end;
 }
 
-.trigger {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
 
-  h3 {
-    margin: 0;
-  }
-}
-
-.working {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: $headers-font;
-  font-size: 24px;
-}
 

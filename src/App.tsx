@@ -33,11 +33,12 @@ const App: FC = () => {
 
       <div className="app">
         <Navigation/>
+        <div className="work-space">
         <Routes>
           <Route path="/" element={  <PizzasDisplay pizzaList={pizzasList}/>}/>
           <Route path="/edit-pizza" element={ <EditPizza savePizza={savePizza}/>}/>
         </Routes>
-
+        </div>
       </div>
 
   )

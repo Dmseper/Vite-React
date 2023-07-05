@@ -1,5 +1,7 @@
+@import "src/components/common/scss/constants";
+
 .pizza {
-  background-color: #213547;
+  background-color: rgba(25, 25, 25, 0.5);
   min-height: 400px;
   min-width: 280px;
   padding: 10px 20px;
@@ -9,11 +11,13 @@
   border-radius: 20px;
 }
 
-.pizza img {
+.pizza >  img {
   width: 300px;
   border-radius: 100%;
 }
-
+.pizzaTittle {
+  font-family: $logo-font;
+}
 .pizzaControls {
   margin-top: auto;
   margin-bottom: 10px;

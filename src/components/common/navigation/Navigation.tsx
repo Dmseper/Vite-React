@@ -16,15 +16,11 @@ const WorkingTimeContent = () => {
 const Navigation = () => {
   return (
     <div className={styles.navigation}>
-      <div className={styles.working}>
 
-        <div className={styles.trigger}>
-          <Tooltip title={<WorkingTimeContent/>}>
-            <h3>Working Time</h3>
-          </Tooltip>
-        </div>
+      <Tooltip title={<WorkingTimeContent/>}>
+        <h3>Working Time</h3>
+      </Tooltip>
 
-      </div>
       <div className={styles.logo}>Noir Pizza</div>
       <div><Menu/></div>
     </div>
