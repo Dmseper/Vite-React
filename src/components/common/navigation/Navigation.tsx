@@ -1,6 +1,6 @@
 import Menu from "../menu/Menu";
 import styles from './Navigation.module.scss'
-import {Tooltip} from "antd";
+import {Switch, Tooltip} from "antd";
 
 
 const WorkingTimeContent = () => {
@@ -16,7 +16,7 @@ const WorkingTimeContent = () => {
 const Navigation = () => {
   return (
     <div className={styles.navigation}>
-
+      <Switch checkedChildren="Night" unCheckedChildren="Day" defaultChecked />
       <Tooltip title={<WorkingTimeContent/>}>
         <h3>Working Time</h3>
       </Tooltip>

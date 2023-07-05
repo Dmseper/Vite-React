@@ -2,7 +2,7 @@
 
 .navigation {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   grid-row-gap: 18px;
   font-family: $headers-font;
@@ -26,6 +26,14 @@
 .contentHeader {
   margin: 0;
   text-align: end;
+}
+.ant-switch {
+  .ant-switch-inner {
+    .ant-switch-inner-checked {
+
+    }
+
+  }
 }
 
 
