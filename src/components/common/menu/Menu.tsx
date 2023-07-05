@@ -1,14 +1,15 @@
 import styles from "./Menu.module.scss"
+import {Link} from "react-router-dom";
 
 const Menu = () => {
   return (
     <div className={styles.menu}>
       <ul>
         <li>
-          <button>Menu</button>
+          <Link to='/'>Menu</Link>
         </li>
         <li>
-          <button>Add new pizza</button>
+          <Link to='/edit-pizza'>Add new pizza</Link>
         </li>
       </ul>
     </div>

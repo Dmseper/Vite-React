@@ -6,7 +6,7 @@ import styles from "./PizzasDisplay.module.scss"
 
 export const PizzasDisplay: FC<PizzasDisp> = ({pizzaList}) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.containerPizzas}>
       {pizzaList.map((pizzaItem: Pizza) => {
           return <PizzaCard pizza={pizzaItem} key={pizzaItem.title}/>
         }

@@ -1,3 +1,5 @@
+@import "../scss/constants";
+
 .navigation {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -11,21 +13,17 @@
   }
 }
 
-.logo > img {
-  width: 100px;
-}
-
 .logo {
-  margin: auto;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 1em #fc4545);
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $logo-font;
+  font-size: 32px;
 }
 
 .contentHeader {
   margin: 0;
+  text-align: end;
 }
 
 .trigger {
@@ -44,5 +42,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: $headers-font;
+  font-size: 24px;
 }
 

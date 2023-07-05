@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'CantarellBold';
+    src: url('fonts-types/CantarellBold.eot');
+    src: url('fonts-types/CantarellBold.eot') format('embedded-opentype'),
+    url('fonts-types/CantarellBold.woff2') format('woff2'),
+    url('fonts-types/CantarellBold.woff') format('woff'),
+    url('fonts-types/CantarellBold.ttf') format('truetype'),
+    url('fonts-types/CantarellBold.svg#CantarellBold') format('svg');
+}
+@font-face {
+    font-family: 'CantarellRegular';
+    src: url('fonts-types/CantarellRegular.eot');
+    src: url('fonts-types/CantarellRegular.eot') format('embedded-opentype'),
+    url('fonts-types/CantarellRegular.woff2') format('woff2'),
+    url('fonts-types/CantarellRegular.woff') format('woff'),
+    url('fonts-types/CantarellRegular.ttf') format('truetype'),
+    url('fonts-types/CantarellRegular.svg#CantarellRegular') format('svg');
+}
+@font-face {
+    font-family: 'PassionOneBold';
+    src: url('fonts-types/PassionOneBold.eot');
+    src: url('fonts-types/PassionOneBold.eot') format('embedded-opentype'),
+    url('fonts-types/PassionOneBold.woff2') format('woff2'),
+    url('fonts-types/PassionOneBold.woff') format('woff'),
+    url('fonts-types/PassionOneBold.ttf') format('truetype'),
+    url('fonts-types/PassionOneBold.svg#PassionOneBold') format('svg');
+}
+@font-face {
+    font-family: 'PassionOneRegular';
+    src: url('fonts-types/PassionOneRegular.eot');
+    src: url('fonts-types/PassionOneRegular.eot') format('embedded-opentype'),
+    url('fonts-types/PassionOneRegular.woff2') format('woff2'),
+    url('fonts-types/PassionOneRegular.woff') format('woff'),
+    url('fonts-types/PassionOneRegular.ttf') format('truetype'),
+    url('fonts-types/PassionOneRegular.svg#PassionOneRegular') format('svg');
+}
+@font-face {
+    font-family: 'SpecialEliteRegular';
+    src: url('fonts-types/SpecialEliteRegular.eot');
+    src: url('fonts-types/SpecialEliteRegular.eot') format('embedded-opentype'),
+    url('fonts-types/SpecialEliteRegular.woff2') format('woff2'),
+    url('fonts-types/SpecialEliteRegular.woff') format('woff'),
+    url('fonts-types/SpecialEliteRegular.ttf') format('truetype'),
+    url('fonts-types/SpecialEliteRegular.svg#SpecialEliteRegular') format('svg');
+}

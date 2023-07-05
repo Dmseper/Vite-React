@@ -20,9 +20,6 @@ export const PizzaCard: FC<PizzaCards> = ({pizza}) => {
         <img src={pizza.image} alt={pizza.title}/>
         <h2>Name: {pizza.title}</h2>
         <span>Price: {pizza.price}</span>
-        <span>Description: {pizza.description}</span>
-        <span>Weight: {pizza.weight}</span>
-
         <div className={styles.pizzaControls}>
           <AiFillEdit onClick={handleEdit}/>
           <AiFillDelete onClick={handleDelete}/>
