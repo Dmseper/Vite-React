@@ -1,9 +1,9 @@
-export const encodeToBase64: (file: File) => Promise<string> = (file: File) => {
+export const encodeToBase64:  (file: File) => Promise<string> = async (file: File) => {
   const reader = new FileReader()
   if (file) reader.readAsDataURL(file)
-  return new Promise<string>((resolve, reject) => {
+  return  new Promise<string>((resolve, reject) => {
     reader.onload = () => {
-      resolve(reader.result as string);
+      resolve(  reader.result as string);
     }
     reader.onerror = (error) => {
       reject(error)

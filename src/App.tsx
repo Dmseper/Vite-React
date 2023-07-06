@@ -1,5 +1,5 @@
 import {FC} from 'react'
-import './App.scss'
+import './components/common/scss/App.scss'
 
 import {Pizza} from "./components/interfaces";
 

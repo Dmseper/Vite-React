@@ -2,7 +2,7 @@ import {Roles} from "./enums";
 
 export interface Pizza {
   id?: number
-  title: string
+  name: string
   price: number | string
   description?: string
   weight?: number | string
