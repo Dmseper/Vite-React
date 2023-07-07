@@ -22,16 +22,14 @@ export const EditPizza: FC = () => {
   const [img, setImg] = useState(pizza.imgBase64 ?? "")
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const {name, value} = event.target
+    const { name, value } = event.target
     setNewPizza({
       ...newPizza,
       [name]: value,
     })
   }
 
-
   const handleClickUpload = () => (document.querySelector(".upload-file") as HTMLElement).click()
-
 
   const handleUploadFile = async (event: ChangeEvent<HTMLInputElement>) => {
 
@@ -47,21 +45,19 @@ export const EditPizza: FC = () => {
     setImg(imgInBase64)
   }
 
-
-  const [form] = Form.useForm();
+  const [form] = Form.useForm()
 
   const layout = {
-    labelCol: {span: 8},
-    wrapperCol: {span: 16},
-  };
+    labelCol: { span: 8 },
+    wrapperCol: { span: 16 },
+  }
   const tailLayout = {
-    wrapperCol: {flex: "100%", span: 100},
-  };
-
+    wrapperCol: { flex: "100%", span: 100 },
+  }
 
   const onFinish = (values: any) => {
-    console.log(values);
-  };
+    console.log(values)
+  }
 
   const onReset = () => {
     form.resetFields();
