@@ -14,10 +14,10 @@ const initState = {
 }
 
 export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
-  const [newPizza, setNewPizza] = useState<Pizza>(pizza ?? initState)
+  const [newPizza, setNewPizza] = useState<Pizza>(initState)
 
   const [img, setImg] = useState('')
-  const [fileName, setFileName] = useState('Choose file')
+
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const {name, value} = event.target
@@ -33,27 +33,19 @@ export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
 
   const handleUploadFile = async (event: ChangeEvent<HTMLInputElement>) => {
     const fileName = event.target.files?.[0].name ?? ""
-    setFileName(fileName)
-    if( event.target.files) {
-      const imageLink = URL.createObjectURL(( event.target as HTMLInputElement).files![0]);
-      setImg(imageLink)
-      setNewPizza({
-        ...newPizza,
-        image: imageLink,
-      })
-    }
 
-    const imgInBase64 = await encodeToBase64(( event.target as HTMLInputElement).files![0]);
-  }
-
-  useEffect(() => {
     setNewPizza({
       ...newPizza,
       image: fileName,
     })
-  }, [fileName])
 
+    if( event.target.files) {
+      const imageLink = URL.createObjectURL(( event.target as HTMLInputElement).files![0]);
+      setImg(imageLink)
+    }
 
+    const imgInBase64 = await encodeToBase64(( event.target as HTMLInputElement).files![0]);
+  }
 
 
   const [form] = Form.useForm();
@@ -85,6 +77,7 @@ export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
     <Form
       {...layout}
       form={form}
+      initialValues={initState}
       onFinish={onFinish}
       labelCol={{flex: '200px'}}
       labelAlign="left"
@@ -99,15 +92,17 @@ export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
                value={newPizza.price}/>
       </Form.Item>
       <Form.Item name="image" label="Image" rules={[{required: true}]}>
+        <div>
         <Input onClick={handleClickUpload}
                value={newPizza.image}/>
+
         <Input type="file"
                onChange={handleUploadFile}
                accept="image/*"
                className="upload-file"
                style={{display: "none"}}
         />
-
+        </div>
       </Form.Item>
       <Form.Item name="weight" label="Weight" rules={[{required: true}]}>
         <Input onChange={handleChange}
@@ -128,7 +123,8 @@ export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
       </Form.Item>
 
     </Form>
-      { img ? <img  src={img} alt={fileName}/> : ''}
+
+      { img ? <img  src={img} alt={pizza?.image}/> : ''}
     </>
   )
 }
