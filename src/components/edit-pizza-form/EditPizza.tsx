@@ -1,4 +1,4 @@
-import {ChangeEvent, FC, useEffect, useState} from "react"
+import {ChangeEvent, FC, useState} from "react"
 import {EditPizzaForm, Pizza} from "../interfaces";
 // import styles from "./EditPizza.module.scss"
 import {Button, Form, Input} from 'antd';
@@ -79,7 +79,7 @@ export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
       form={form}
       initialValues={initState}
       onFinish={onFinish}
-      labelCol={{flex: '200px'}}
+      labelCol={{flex: "200px"}}
       labelAlign="left"
       wrapperCol={{flex: 1}}
     >
