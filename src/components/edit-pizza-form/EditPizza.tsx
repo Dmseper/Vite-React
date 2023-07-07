@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useEffect, useState } from "react"
+import { ChangeEvent, FC, useState } from "react"
 import { EditPizzaForm, Pizza } from "../interfaces"
 // import styles from "./EditPizza.module.scss"
 import { Button, Form, Input } from "antd"
