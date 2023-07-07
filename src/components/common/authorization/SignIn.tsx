@@ -10,12 +10,12 @@ export default function SignIn() {
   }
   return (
     <div className={classes.wrapper}>
-      <h3
+      <span
         className={classes.inner}
         onClick={showAuthorization}
       >
         Sign in
-      </h3>
+      </span>
 
       <AuthForm
         open={modalOpen}
