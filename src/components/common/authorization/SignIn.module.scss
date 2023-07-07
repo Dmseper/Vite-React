@@ -1,0 +1,18 @@
+@import "../scss/constants";
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.inner {
+  padding: 20px;
+  margin: 0;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

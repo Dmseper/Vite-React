@@ -1,7 +1,7 @@
-import Menu from "../menu/Menu";
-import styles from './Navigation.module.scss'
-import {Switch, Tooltip} from "antd";
-
+import Menu from "../menu/Menu"
+import SignIn from "../authorization/SignIn"
+import styles from "./Navigation.module.scss"
+import { Switch, Tooltip } from "antd"
 
 const WorkingTimeContent = () => {
   return (
@@ -12,19 +12,25 @@ const WorkingTimeContent = () => {
   )
 }
 
-
 const Navigation = () => {
   return (
     <div className={styles.navigation}>
-      <Switch checkedChildren="Night" unCheckedChildren="Day" defaultChecked />
-      <Tooltip title={<WorkingTimeContent/>}>
+      <Switch
+        checkedChildren="Night"
+        unCheckedChildren="Day"
+        defaultChecked
+      />
+      <Tooltip title={<WorkingTimeContent />}>
         <h3>Working Time</h3>
       </Tooltip>
 
       <div className={styles.logo}>Noir Pizza</div>
-      <div><Menu/></div>
+      <div>
+        <Menu />
+      </div>
+      <SignIn />
     </div>
   )
 }
 
-export default Navigation;
+export default Navigation
