@@ -45,6 +45,7 @@ export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
     }
 
     const imgInBase64 = await encodeToBase64(( event.target as HTMLInputElement).files![0]);
+
   }
 
 
