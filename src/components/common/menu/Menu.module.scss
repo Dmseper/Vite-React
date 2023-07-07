@@ -1,10 +1,18 @@
+@import "src/components/common/scss/constants";
+
 .menu {
   width: 100%;
   margin-right: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 24px;
+  font-size: 32px;
   justify-content: center;
   gap: 20px;
+  height: 90px;
+  box-sizing: border-box;
+}
+
+.menu > .active   {
+
 }

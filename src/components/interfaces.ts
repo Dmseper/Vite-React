@@ -7,6 +7,7 @@ export interface Pizza {
   description?: string
   weight?: number | string
   image?: string
+  imgBase64?: string
   fullSizeImage?: string
 }
 
@@ -15,14 +16,6 @@ export interface Ingredient {
   name: string
 }
 
-export interface EditPizzaForm {
-  pizza?: Pizza
-  savePizza?: (newPizza: Pizza) => void
-}
-
-export interface PizzasDisp {
-  pizzaList: Pizza[]
-}
 
 export interface PizzaCards {
   pizza: Pizza

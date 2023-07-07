@@ -6,8 +6,8 @@ import {Switch, Tooltip} from "antd";
 const WorkingTimeContent = () => {
   return (
     <div>
-      <h4 className={styles.contentHeader}>Fri - Sat: 10.00 - 24.00 </h4>
-      <h4 className={styles.contentHeader}>Sun - Thu: 10.00 - 23.00</h4>
+      <span className={styles.contentHeader}>Fri - Sat: 10.00 - 24.00 </span>
+      <span className={styles.contentHeader}>Sun - Thu: 10.00 - 23.00</span>
     </div>
   )
 }
@@ -18,7 +18,7 @@ const Navigation = () => {
     <div className={styles.navigation}>
       <Switch checkedChildren="Night" unCheckedChildren="Day" defaultChecked />
       <Tooltip title={<WorkingTimeContent/>}>
-        <h3>Working Time</h3>
+        <span className={styles.timePopper}>Working Time</span>
       </Tooltip>
 
       <div className={styles.logo}>Noir Pizza</div>

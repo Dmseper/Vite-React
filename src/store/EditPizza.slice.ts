@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Pizza} from "../components/interfaces.ts";
 
+
 interface PizzaState {
   pizza: Pizza
 }
