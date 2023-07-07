@@ -22,11 +22,11 @@ const App: FC = () => {
 
   const savePizza = (newPizza: Pizza) => {
 
-    if (!pizzasList.find(pizzaItem => pizzaItem.title === newPizza.title)) {
+    if (!pizzasList.find(pizzaItem => pizzaItem.name === newPizza.name)) {
       setPizzasList([...pizzasList, newPizza])
       return
     }
-    setPizzasList(pizzasList.map(oldVersionPizza => oldVersionPizza.title === newPizza.title ? newPizza : oldVersionPizza))
+    setPizzasList(pizzasList.map(oldVersionPizza => oldVersionPizza.name === newPizza.name ? newPizza : oldVersionPizza))
   }
 
   return (

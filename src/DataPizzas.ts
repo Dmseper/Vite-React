@@ -1,7 +1,7 @@
 export const dataPizzas = [
   {
     "id": 1,
-    "title": "Pepperoni",
+    "name": "Pepperoni",
     "price": "25",
     "description": "",
     "weight": "550",
@@ -10,7 +10,7 @@ export const dataPizzas = [
   },
   {
     "id": 2,
-    "title": "Margarita",
+    "name": "Margarita",
     "price": "35",
     "description": "",
     "weight": "510",
@@ -19,7 +19,7 @@ export const dataPizzas = [
   },
   {
     "id": 3,
-    "title": "Gawaii",
+    "name": "Gawaii",
     "price": "28",
     "description": "",
     "weight": "560",
@@ -28,7 +28,7 @@ export const dataPizzas = [
   },
   {
     "id": 4,
-    "title": "Palermo",
+    "name": "Palermo",
     "price": "35",
     "description": "",
     "weight": "490",

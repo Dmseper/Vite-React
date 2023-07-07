@@ -8,7 +8,7 @@ export const PizzasDisplay: FC<PizzasDisp> = ({pizzaList}) => {
   return (
     <div className={styles.containerPizzas}>
       {pizzaList.map((pizzaItem: Pizza) => {
-          return <PizzaCard pizza={pizzaItem} key={pizzaItem.title}/>
+          return <PizzaCard pizza={pizzaItem} key={pizzaItem.name}/>
         }
       )}
     </div>

@@ -16,7 +16,7 @@ const initState = {
 export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
   const [newPizza, setNewPizza] = useState<Pizza>(pizza ?? initState)
 
-  const [img, setImg] = useState(null)
+  const [img, setImg] = useState('')
   const [fileName, setFileName] = useState('Choose file')
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -34,14 +34,16 @@ export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
   const handleUploadFile = async (event: ChangeEvent<HTMLInputElement>) => {
     const fileName = event.target.files?.[0].name ?? ""
     setFileName(fileName)
+    if( event.target.files) {
+      const imageLink = URL.createObjectURL(( event.target as HTMLInputElement).files![0]);
+      setImg(imageLink)
+      setNewPizza({
+        ...newPizza,
+        image: imageLink,
+      })
+    }
 
-
-
-    const imgInBase64 = await encodeToBase64((event.target as HTMLInputElement).files![0]);
-    console.log("imgName",fileName)
-    console.log("imgInBase64",imgInBase64)
-
-    console.log(newPizza)
+    const imgInBase64 = await encodeToBase64(( event.target as HTMLInputElement).files![0]);
   }
 
   useEffect(() => {
@@ -99,7 +101,12 @@ export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
       <Form.Item name="image" label="Image" rules={[{required: true}]}>
         <Input onClick={handleClickUpload}
                value={newPizza.image}/>
-
+        <Input type="file"
+               onChange={handleUploadFile}
+               accept="image/*"
+               className="upload-file"
+               style={{display: "none"}}
+        />
 
       </Form.Item>
       <Form.Item name="weight" label="Weight" rules={[{required: true}]}>
@@ -119,15 +126,6 @@ export const EditPizza: FC<EditPizzaForm> = ({pizza, savePizza}) => {
           Reset
         </Button>
       </Form.Item>
-
-
-
-      <Input type="file"
-             onChange={handleUploadFile}
-             accept="image/*"
-             className="upload-file"
-             style={{display: "none"}}
-      />
 
     </Form>
       { img ? <img  src={img} alt={fileName}/> : ''}
