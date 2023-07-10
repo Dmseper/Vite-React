@@ -6,7 +6,6 @@
   justify-content: flex-end;
   align-items: center;
   height: 90px;
-
 }
 
 .inner {
@@ -14,7 +13,7 @@
   height: 50px;
   text-decoration: none;
   box-sizing: border-box;
-  margin: 0;
+  margin: 0 20px;
   cursor: pointer;
   font-size: 32px;
   color: $main-font-color;

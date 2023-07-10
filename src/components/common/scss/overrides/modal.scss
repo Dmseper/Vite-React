@@ -1,0 +1,20 @@
+@import "../constants.scss";
+
+@mixin ant-modal() {
+  .ant-modal-root {
+    .ant-modal-wrap {
+      .ant-modal {
+        .ant-modal-content {
+          background-color: $modal-background;
+          .ant-modal-header {
+            color: $main-font-color;
+            background-color: inherit;
+            .ant-modal-title {
+              color: inherit;
+            }
+          }
+        }
+      }
+    }
+  }
+}

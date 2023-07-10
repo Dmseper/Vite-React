@@ -2,8 +2,7 @@ import classes from "./AuthForm.module.scss"
 import { Modal, Form, Input, InputRef } from "antd"
 import { LockOutlined, UserOutlined } from "@ant-design/icons"
 import { useRef } from "react"
-import { authRules } from "./auth-rules"
-import { useForm } from "react-hook-form"
+import { authRules, loginValidator } from "./auth-rules"
 
 interface AuthValues {
   login: string
@@ -15,7 +14,10 @@ interface AuthFormProps {
   onCancel(): void
 }
 
-export default function CollectionCreateForm({ open, onCancel }: AuthFormProps) {
+export default function CollectionCreateForm({
+  open,
+  onCancel,
+}: AuthFormProps) {
   const [form] = Form.useForm()
   const focusedInputRef = useRef<InputRef>(null)
 
@@ -31,12 +33,17 @@ export default function CollectionCreateForm({ open, onCancel }: AuthFormProps) 
         onSubmit(values)
       })
       .catch((info) => {
-        console.log("Validate Failed:", info)
+        console.log("Validation Failed:", info)
       })
   }
 
   const dialogOpened = () => {
     focusedInputRef?.current?.focus()
+    form.resetFields()
+  }
+
+  const handleLoginChange = () => {
+    form.setFieldValue("login", loginValidator(form.getFieldValue("login")))
   }
 
   return (
@@ -56,22 +63,17 @@ export default function CollectionCreateForm({ open, onCancel }: AuthFormProps) 
         name="auth-form"
         initialValues={{ login: "", password: "" }}
       >
-        <Form.Item
-          name="login"
-          rules={authRules.userName}
-        >
+        <Form.Item name="login" rules={authRules.userName}>
           <Input
             ref={focusedInputRef}
             prefix={<UserOutlined className="site-form-item-icon" />}
             placeholder="Username"
             maxLength={30}
+            onChange={handleLoginChange}
           />
         </Form.Item>
 
-        <Form.Item
-          name="password"
-          rules={authRules.password}
-        >
+        <Form.Item name="password" rules={authRules.password}>
           <Input.Password
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
