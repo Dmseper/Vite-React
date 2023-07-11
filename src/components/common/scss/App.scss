@@ -26,6 +26,7 @@ body {
   font-weight: 400;
   color-scheme: light dark;
   background-color: #242424;
+  background-image: url($background-image);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -54,6 +55,7 @@ a {
   color: $main-font-color;
   font-family: $headers-font;
   border-bottom: 4px solid $dark-border;
+  transition: $medium-transition;
 }
 .active {
   border-bottom: 4px solid $main-font-color;

@@ -1,0 +1,13 @@
+@import "src/components/common/scss/constants";
+.editCard {
+  background-color: $main-background;
+  padding: 20px 24px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  height: 584px;
+  width: 800px;
+}

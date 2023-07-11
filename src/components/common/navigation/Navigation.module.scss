@@ -2,15 +2,15 @@
 
 .navigation {
   display: grid;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr;
-  grid-row-gap: 18px;
+
   font-family: $headers-font;
-  font-size: 32px;
+  font-size: $headers-font-size;
   height: 90px;
-  background-color: rgba(25, 25, 25, 0.5);
+  background-color: $main-background;
   button {
     padding: 0;
     margin: 0;

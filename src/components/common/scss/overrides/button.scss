@@ -3,7 +3,8 @@
 @mixin ant-btn() {
  .ant-btn {
    height: 40px;
-   width: 100px;
+   min-width: 60px;
+   width: 80px;
    font-size:$title-font-size;
    font-family: $logo-font ;
  }

@@ -1,20 +1,28 @@
 @import "/fonts/fonts.css";
-
+//fonts
 $main-font: "CantarellRegular", sans-serif;
 $headers-font: "PassionOneRegular", sans-serif;
 $logo-font: "SpecialEliteRegular", $headers-font, $main-font, sans-serif;
 
+//urls
 $background-image: "/images/background/background.png";
-
 $shopping-cart: "/images/icons/shopping_cart_icon.svg";
 
+//font-colors
 $main-font-color: rgba(255, 255, 255, 0.85);
-$main-font-size: 16px;
+
+//font-sizes
+$main-font-size: 18px;
 $title-font-size: 22px;
+$headers-font-size: 32px;
+
+//transitions
 $medium-transition: all 0.5s ease 0s;
 $fast-transition: all 0.2s ease 0s;
 $low-transition: all 0.8s ease 0s;
 
+//backgrounds
 $modal-background: #242424;
-
+$main-background: rgba(10, 10, 10, 0.95);
+//borders
 $dark-border: rgba(25, 25, 25, 0.5);

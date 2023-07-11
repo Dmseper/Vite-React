@@ -15,7 +15,7 @@
   box-sizing: border-box;
   margin: 0 20px;
   cursor: pointer;
-  font-size: 32px;
+  font-size: $headers-font-size;
   color: $main-font-color;
   border-bottom: 4px solid $dark-border;
   &:hover {

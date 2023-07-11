@@ -1,14 +1,19 @@
 @import "src/components/common/scss/constants";
 
 .pizza {
-  background-color: rgba(25, 25, 25, 0.5);
+  background-color: $main-background;
   min-height: 400px;
   min-width: 280px;
-  padding: 10px 20px;
+  padding: 15px 20px 20px;
   display: flex;
   gap: 10px;
   flex-direction: column;
   border-radius: 20px;
+  border: 2px solid $main-background;
+  transition: $medium-transition;
+}
+.pizza.selected {
+  border: 2px solid #1677ff ;
 }
 
 .pizza >  img {
@@ -17,6 +22,7 @@
 }
 .pizzaTittle {
   font-family: $logo-font;
+  font-size: $headers-font-size;
 }
 .pizzaControls {
   margin-top: auto;
@@ -25,4 +31,29 @@
   gap: 20px;
   justify-content: center;
   cursor: pointer;
+}
+.pizzaControllers {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+.counter {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  color:black;
+  font-size: 26px;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  border-color: #d9d9d9;
+}
+
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
