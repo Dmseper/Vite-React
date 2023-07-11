@@ -61,6 +61,24 @@ input::file-selector-button {
   display: none;
 }
 
+sup {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 26px;
+  padding: 0 6px;
+  min-width: 24px;
+  height: 34px;
+  width: fit-content;
+  background-color: red;
+  border-radius: 25px;
+  position: relative;
+  right: 15px;
+  bottom: 15px
+}
+
+
 @include ant-from;
 @include ant-modal;
 @include ant-btn;

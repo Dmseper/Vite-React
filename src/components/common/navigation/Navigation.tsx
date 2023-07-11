@@ -1,7 +1,8 @@
 import Menu from "../menu/Menu"
 import SignIn from "../authorization/SignIn"
 import styles from "./Navigation.module.scss"
-import { Switch, Tooltip } from "antd"
+import { Tooltip } from "antd"
+import {PizzasCart} from "../../pizzas-cart/PizzasCart.tsx";
 
 const WorkingTimeContent = () => {
   return (
@@ -15,15 +16,18 @@ const WorkingTimeContent = () => {
 const Navigation = () => {
   return (
     <div className={styles.navigation}>
-      <Switch checkedChildren="Night" unCheckedChildren="Day" defaultChecked />
+      <div></div>
       <Tooltip title={<WorkingTimeContent/>}>
         <span className={styles.timePopper}>Working Time</span>
       </Tooltip>
-
+      <div></div>
+      <div></div>
       <div className={styles.logo}>Noir Pizza</div>
+      <div></div>
       <div>
         <Menu />
       </div>
+      <PizzasCart />
       <SignIn />
     </div>
   )

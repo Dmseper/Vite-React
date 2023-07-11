@@ -8,7 +8,6 @@ export interface Pizza {
   weight?: number | string
   image?: string
   imgBase64?: string
-  fullSizeImage?: string
 }
 
 export interface Ingredient {

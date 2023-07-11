@@ -2,7 +2,9 @@
 
 .navigation {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(9, 1fr);
   grid-template-rows: 1fr;
   grid-row-gap: 18px;
   font-family: $headers-font;
