@@ -5,4 +5,6 @@ export enum Roles {
 
 export enum AppModules {
   ADD_PIZZA = "ADD_PIZZA",
+  MENU = "MENU",
+  HANDBOOK = "HANDBOOK",
 }

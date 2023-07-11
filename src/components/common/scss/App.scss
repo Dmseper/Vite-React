@@ -53,12 +53,10 @@ a {
   text-decoration: none;
   color: $main-font-color;
   font-family: $headers-font;
+  border-bottom: 4px solid $dark-border;
 }
-a:visited {
-  color: $main-font-color;
-}
-input::file-selector-button {
-  display: none;
+.active {
+  border-bottom: 4px solid $main-font-color;
 }
 
 sup {
