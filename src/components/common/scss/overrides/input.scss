@@ -1,0 +1,9 @@
+@import "../constants.scss";
+
+@mixin ant-input() {
+  .ant-input {
+    height: 40px;
+    font-family: $main-font;
+    font-size: $title-font-size !important;
+  }
+}
