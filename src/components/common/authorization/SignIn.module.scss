@@ -17,7 +17,7 @@
   cursor: pointer;
   font-size: 32px;
   color: $main-font-color;
-  border-bottom: 4px solid rgba(25, 25, 25, 0.5);
+  border-bottom: 4px solid $dark-border;
   &:hover {
     border-bottom: 4px solid $main-font-color;
   }
