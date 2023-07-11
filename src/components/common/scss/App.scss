@@ -1,6 +1,8 @@
 @import "constants";
 @import "./overrides/form.scss";
 @import "./overrides/modal.scss";
+@import "./overrides/button.scss";
+@import "./overrides/input.scss";
 
 #root {
   max-width: 100vw;
@@ -59,3 +61,5 @@ a {
 
 @include ant-from;
 @include ant-modal;
+@include ant-btn;
+@include ant-input;
