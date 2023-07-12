@@ -2,7 +2,7 @@ import Menu from "../menu/Menu"
 import SignIn from "../authorization/SignIn"
 import styles from "./Navigation.module.scss"
 import {Tooltip} from "antd"
-import {PizzasCart} from "../../pizzas-cart/PizzasCart.tsx";
+import {Cart} from "../../pizzas-cart/Cart.tsx";
 
 const WorkingTimeContent = () => {
     return (
@@ -23,7 +23,7 @@ const Navigation = () => {
             <div className={styles.logo}>Noir Pizza</div>
             <Menu/>
             <div style={{display: "flex", flexDirection: "row", paddingLeft: "20px"}}>
-                <PizzasCart/>
+                <Cart/>
                 <SignIn/>
             </div>
 

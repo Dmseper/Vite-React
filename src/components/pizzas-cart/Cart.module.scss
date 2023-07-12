@@ -6,3 +6,9 @@
   align-items: center;
   justify-content: center;
 }
+.pricePizzas {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  font-weight: bold;
+}

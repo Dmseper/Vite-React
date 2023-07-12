@@ -1,0 +1,22 @@
+@import "../constants.scss";
+
+@mixin ant-popover() {
+  .ant-popover {
+    font-family: $main-font;
+
+    .ant-popover-content {
+      width: 200px;
+      .ant-popover-inner {
+        .ant-popover-inner-content {
+          .ant-popconfirm-inner-content {
+            .ant-popconfirm-message {
+              .ant-popconfirm-message-text {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

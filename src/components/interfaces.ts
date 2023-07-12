@@ -16,8 +16,8 @@ export interface Ingredient {
 }
 
 
-export interface PizzaCards {
-  pizza: Pizza
+export interface PizzasList {
+  pizzasList: Pizza[]
 }
 
 export interface Menu {
