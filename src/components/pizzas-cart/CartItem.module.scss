@@ -1,0 +1,14 @@
+.pizzaItem img {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+}
+.pizzaItem {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
