@@ -64,4 +64,4 @@ export const PizzaCard: FC<PizzaCards> = ({pizza}) => {
     )
 }
 
-export default PizzaCard;
+export default PizzaCard

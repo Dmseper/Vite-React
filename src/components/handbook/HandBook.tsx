@@ -1,35 +1,18 @@
-import { Space, Table, Tag } from "antd"
-import type { ColumnsType } from "antd/es/table"
-import { dataPizzas } from "../../DataPizzas"
-
-interface DataType {
-  name: string
-}
-
-const columns: ColumnsType<DataType> = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
-  },
-
-  {
-    title: "",
-    key: "",
-    render: () => (
-      <Space size="middle">
-        <span>Edit</span>
-        <span>Delete</span>
-      </Space>
-    ),
-  },
-]
+import classes from "./HandBook.module.scss"
+import { Table } from "antd"
+import { useAppSelector } from "../../hooks.ts"
+import { DataType, columns } from "./table-models.tsx"
 
 export default function HandBook() {
+  const pizzasList = useAppSelector((state) => state.pizzasListStore).pizzasList
+  const tableData: DataType[] = pizzasList.map((pizza) => ({ pizza, key: pizza.id! }))
   return (
-    <Table
-      columns={columns}
-      dataSource={dataPizzas}
-    />
+    <div className={classes.wrapper}>
+      <Table
+        bordered
+        columns={columns}
+        dataSource={tableData}
+      />
+    </div>
   )
 }

@@ -1,0 +1,51 @@
+@import "../constants.scss";
+
+@mixin ant-table() {
+  .ant-table-wrapper {
+    .ant-spin-nested-loading {
+      .ant-spin-container {
+        .ant-table {
+          font-family: $headers-font;
+          font-size: $headers-font-size;
+          color: $main-font-color;
+          background: $modal-background;
+          .ant-table-container {
+            .ant-table-content {
+              .ant-table-thead {
+                .ant-table-cell {
+                  color: $main-font-color;
+                  background: $table-row-hover-background;
+                }
+              }
+              .ant-table-cell-row-hover {
+                background-color: $table-row-hover-background;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .ant-pagination {
+    color: $main-font-color;
+    .ant-pagination-item {
+      background: $table-row-hover-background;
+      a {
+        color: $main-font-color;
+        transition: $fast-transition;
+        &:hover {
+          color: $main-font-color;
+          scale: 1.5;
+        }
+      }
+      &:hover {
+        border-color: $main-font-color;
+        background: $modal-background;
+      }
+    }
+    .ant-pagination-item-active {
+      border-color: $main-font-color;
+      background: $modal-background;
+    }
+  }
+}

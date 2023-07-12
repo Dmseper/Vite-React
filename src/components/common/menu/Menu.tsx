@@ -5,7 +5,6 @@ const Menu = () => {
   return (
     <div className={styles.menu}>
       <NavLink to="/">Menu</NavLink>
-      <NavLink to="/edit-pizza"> Add Pizza</NavLink>
       <NavLink to="/handbook"> Handbook</NavLink>
     </div>
   )

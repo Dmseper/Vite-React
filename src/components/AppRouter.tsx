@@ -5,7 +5,7 @@ import HandBook from "./handbook/HandBook"
 
 const AppRouter = () => {
   return (
-    <div>
+    <>
       <Routes>
         <Route
           path="/"
@@ -24,7 +24,7 @@ const AppRouter = () => {
           element={<PizzasDisplay />}
         />
       </Routes>
-    </div>
+    </>
   )
 }
 export default AppRouter

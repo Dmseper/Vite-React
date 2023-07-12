@@ -1,0 +1,24 @@
+@import "src/components/common/scss/constants";
+
+.wrapper {
+  width: 85%;
+}
+
+.icon {
+  font-size: 32px;
+  transition: $fast-transition;
+  &:hover {
+    scale: 1.2;
+  }
+}
+
+.pizzaImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.pizzaTitle {
+  display: flex;
+  gap: 20px;
+}

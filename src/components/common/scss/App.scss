@@ -4,6 +4,8 @@
 @import "./overrides/button.scss";
 @import "./overrides/input.scss";
 @import "./overrides/popover";
+@import "./overrides/table.scss";
+
 #root {
   max-width: 100vw;
   max-height: 100vh;
@@ -75,12 +77,12 @@ sup {
   border-radius: 25px;
   position: relative;
   right: 15px;
-  bottom: 15px
+  bottom: 15px;
 }
-
 
 @include ant-from;
 @include ant-modal;
 @include ant-btn;
 @include ant-input;
 @include ant-popover;
+@include ant-table;

@@ -1,13 +1,33 @@
 @import "src/components/common/scss/constants";
-.editCard {
+
+.wrapper {
   background-color: $main-background;
   padding: 20px 24px;
   border-radius: 8px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  height: 584px;
+  width: 800px;
+}
+.editCard {
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
-  height: 584px;
-  width: 800px;
+}
+
+.backWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.back {
+  padding: 0 20px;
+  font-family: $headers-font;
+  font-size: $headers-font-size;
+  cursor: pointer;
+  transition: $fast-transition;
+  &:hover {
+    scale: 1.2;
+  }
 }

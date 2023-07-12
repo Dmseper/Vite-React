@@ -1,6 +1,7 @@
-import {Roles} from "./enums";
+import { Roles } from "./enums"
+import { Dough, PizzaSize } from "./types"
 
-export interface Pizza {
+export interface Item {
   id?: number
   name: string
   price: number | string
@@ -9,10 +10,16 @@ export interface Pizza {
   image?: string
   imgBase64?: string
 }
+export interface Pizza extends Item {
+  dough?: Dough
+  size?: PizzaSize
+  adds?: Ingredient[]
+}
 
 export interface Ingredient {
   id?: number
   name: string
+  addPrice?: number
 }
 
 
