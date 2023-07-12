@@ -5,6 +5,9 @@ import {useAppDispatch, useAppSelector} from "../../hooks.ts";
 import {Button} from "antd";
 import {addPizzaToPizzasCart, deletePizzaFromPizzasCart} from "../../store/PizzasCart.slice.ts";
 import { Radio } from 'antd';
+import {DOUGH, PIZZABASE, PIZZASIZENUMBER} from "../enums.ts";
+
+
 interface PizzaCards {
     pizza: Pizza
 }
@@ -36,17 +39,17 @@ export const PizzaCard: FC<PizzaCards> = ({pizza}) => {
 
                 <div className=""></div>
                 <Radio.Group defaultValue="a" buttonStyle="solid">
-                    <Radio.Button value="a">Tomato</Radio.Button>
-                    <Radio.Button value="b">Creamy</Radio.Button>
+                    <Radio.Button value="a">{PIZZABASE.CREAMY}</Radio.Button>
+                    <Radio.Button value="b">{PIZZABASE.TOMATO}</Radio.Button>
                 </Radio.Group>
                 <Radio.Group defaultValue="a" buttonStyle="solid">
-                    <Radio.Button value="b">25 cm</Radio.Button>
-                    <Radio.Button value="a">33 cm</Radio.Button>
-                    <Radio.Button value="c">40 cm</Radio.Button>
+                    <Radio.Button value="b">{PIZZASIZENUMBER.Small}</Radio.Button>
+                    <Radio.Button value="a">{PIZZASIZENUMBER.Default}</Radio.Button>
+                    <Radio.Button value="c">{PIZZASIZENUMBER.Large}</Radio.Button>
                 </Radio.Group>
                 <Radio.Group defaultValue="a" buttonStyle="solid">
-                    <Radio.Button value="a">Thin</Radio.Button>
-                    <Radio.Button value="b">Thick</Radio.Button>
+                    <Radio.Button value="a">{DOUGH.THICK}</Radio.Button>
+                    <Radio.Button value="b">{DOUGH.THIN}</Radio.Button>
                 </Radio.Group>
                 <div className={styles.pizzaControllers}>
                     <Button htmlType="button" onClick={() => removePizza(pizza.name)}>

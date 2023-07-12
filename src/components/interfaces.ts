@@ -1,4 +1,4 @@
-import { Roles } from "./enums"
+import { ROLES } from "./enums"
 import { Dough, PizzaSize } from "./types"
 
 export interface Item {
@@ -30,7 +30,7 @@ export interface PizzasList {
 export interface Menu {
   id: number
   title: string
-  role: Roles
+  role: ROLES
   link: string
   isActive: boolean
 }
