@@ -7,9 +7,11 @@
         .ant-modal-content {
           background-color: $modal-background;
           font-family: $main-font;
+
           .ant-modal-header {
             color: $main-font-color;
             background-color: inherit;
+
             .ant-modal-title {
               color: inherit;
               font-size: $title-font-size;

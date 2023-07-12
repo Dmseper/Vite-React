@@ -2,9 +2,8 @@ import {FC} from "react";
 import {Pizza} from "../interfaces";
 import styles from "./PizzaCard.module.scss"
 import {useAppDispatch, useAppSelector} from "../../hooks.ts";
-import {Button} from "antd";
+import {Button, Radio} from "antd";
 import {addPizzaToPizzasCart, deletePizzaFromPizzasCart} from "../../store/PizzasCart.slice.ts";
-import { Radio } from 'antd';
 import {DOUGH, PIZZABASE, PIZZASIZENUMBER} from "../enums.ts";
 
 
@@ -38,18 +37,20 @@ export const PizzaCard: FC<PizzaCards> = ({pizza}) => {
                 <span>{pizza.price} $ / {pizza.weight} g.</span>
 
                 <div className=""></div>
-                <Radio.Group defaultValue="a" buttonStyle="solid">
-                    <Radio.Button value="a">{PIZZABASE.CREAMY}</Radio.Button>
-                    <Radio.Button value="b">{PIZZABASE.TOMATO}</Radio.Button>
-                </Radio.Group>
+
                 <Radio.Group defaultValue="a" buttonStyle="solid">
                     <Radio.Button value="b">{PIZZASIZENUMBER.Small}</Radio.Button>
                     <Radio.Button value="a">{PIZZASIZENUMBER.Default}</Radio.Button>
                     <Radio.Button value="c">{PIZZASIZENUMBER.Large}</Radio.Button>
                 </Radio.Group>
+
                 <Radio.Group defaultValue="a" buttonStyle="solid">
-                    <Radio.Button value="a">{DOUGH.THICK}</Radio.Button>
-                    <Radio.Button value="b">{DOUGH.THIN}</Radio.Button>
+                    <Radio.Button value="a" className={"large"}>{PIZZABASE.CREAMY}</Radio.Button>
+                    <Radio.Button value="b" className={"large"}>{PIZZABASE.TOMATO}</Radio.Button>
+                </Radio.Group>
+                <Radio.Group defaultValue="a" buttonStyle="solid">
+                    <Radio.Button value="a" className={"large"}>{DOUGH.THICK}</Radio.Button>
+                    <Radio.Button value="b" className={"large"}>{DOUGH.THIN}</Radio.Button>
                 </Radio.Group>
                 <div className={styles.pizzaControllers}>
                     <Button htmlType="button" onClick={() => removePizza(pizza.name)}>

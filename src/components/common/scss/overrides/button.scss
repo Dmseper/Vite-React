@@ -1,13 +1,13 @@
 @import "../constants.scss";
 
 @mixin ant-btn() {
- .ant-btn {
-   height: 32px;
-   min-width: 60px;
-   width: 80px;
-   font-size:$title-font-size;
-   font-family: $logo-font ;
- }
+  .ant-btn {
+    height: 32px;
+    min-width: 60px;
+    width: 80px;
+    font-size: $title-font-size;
+    font-family: $logo-font;
+  }
   .ant-btn > span {
     display: flex;
     align-items: center;

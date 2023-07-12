@@ -1,0 +1,13 @@
+@import "../constants.scss";
+
+@mixin ant-radio-button() {
+  .ant-radio-button-wrapper {
+    width: 80px;
+    padding: 0 10px;
+    font-size: $main-font-size;
+    font-family: $main-font;
+  }
+  .ant-radio-button-wrapper.large {
+    width: 120px;
+  }
+}

@@ -27,8 +27,9 @@
 .pizzaControllers {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
+  width: 240px;
+  margin: 10px auto 0;
 }
 .counter {
   display: block;
@@ -36,7 +37,7 @@
   align-items: center;
   color:black;
   font-size: 20px;
-  width: 40px;
+  width: 70px;
   height: 32px;
   border-radius: 6px;
   background-color: #ffffff;
