@@ -14,6 +14,7 @@
   padding: 0;
   text-align: center;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 body {
@@ -30,6 +31,7 @@ body {
   color-scheme: light dark;
   background-color: #242424;
   background-image: url($background-image);
+  background-attachment: scroll;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -46,6 +48,7 @@ body {
 
 .work-space {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   height: 100%;

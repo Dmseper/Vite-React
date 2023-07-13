@@ -4,10 +4,13 @@
   background-color: $main-background;
   min-height: 400px;
   min-width: 280px;
+  width: 360px;
   padding: 15px 20px 20px;
   display: flex;
   gap: 10px;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-radius: 20px;
   border: 2px solid $light-border;
   transition: $medium-transition;

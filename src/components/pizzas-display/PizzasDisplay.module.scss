@@ -1,8 +1,19 @@
+@import "src/components/common/scss/constants";
+
 .containerPizzas {
   height: 100%;
+  width: 90%;
   display: flex;
   gap: 20px;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: 20px 0 200px;
 }
-
+.containerPizzas::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
