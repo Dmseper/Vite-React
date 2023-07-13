@@ -62,7 +62,7 @@ a {
 }
 
 .active {
-  border-bottom: 4px solid $main-font-color;
+  border-bottom: 4px solid $button-background-primary-hover;
 }
 
 sup {
@@ -75,7 +75,7 @@ sup {
   min-width: 24px;
   height: 34px;
   width: fit-content;
-  background-color: red;
+  background-color: $button-background-primary-hover;
   border-radius: 25px;
   position: relative;
   right: 15px;

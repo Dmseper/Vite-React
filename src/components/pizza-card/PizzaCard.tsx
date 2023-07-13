@@ -5,7 +5,7 @@ import {useAppDispatch, useAppSelector} from "../../hooks.ts";
 import {Button, Radio} from "antd";
 import {addPizzaToPizzasCart, deletePizzaFromPizzasCart} from "../../store/PizzasCart.slice.ts";
 import {DOUGH, PIZZABASE, PIZZASIZENUMBER} from "../enums.ts";
-
+import { PlusOutlined, MinusOutlined } from "@ant-design/icons"
 
 interface PizzaCards {
     pizza: Pizza
@@ -55,13 +55,13 @@ export const PizzaCard: FC<PizzaCards> = ({pizza}) => {
                 <div className={styles.pizzaControllers}>
                     <Button htmlType="button" onClick={() => removePizza(pizza.name)}>
 
-                        <div className={styles.icons}><img src="/images/icons/remove.svg" alt=""/></div>
+                        <div className={styles.icons}><MinusOutlined /></div>
 
                     </Button>
                     <span className={styles.counter}>{countPizzas(pizza.name)}</span>
 
                     <Button type="primary" htmlType="button" onClick={() => addPizza(pizza)}>
-                        <div className={styles.icons}><img src="/images/icons/add.svg" alt=""/></div>
+                        <div className={styles.icons}><PlusOutlined /></div>
                     </Button></div>
             </div>
         </>

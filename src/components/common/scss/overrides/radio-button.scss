@@ -6,7 +6,31 @@
     padding: 0 10px;
     font-size: $main-font-size;
     font-family: $main-font;
+    color: $sub-font-color;
+    background-color: $button-background;
+    border-color: $button-background;
+
+    &:before {
+      background-color: $button-background-primary !important;
+    }
+
+    &:hover {
+      color: $hover-font-color;
+      box-shadow: 0 0 5px 2px $button-background-primary-hover;
+    }
   }
+
+  .ant-radio-button-wrapper.ant-radio-button-wrapper-checked {
+    background-color: $button-background-primary !important;
+    border-color: $button-background-primary !important;
+
+    &:hover {
+      background-color: $button-background-primary-hover !important;
+      border-color: $button-background-primary-hover !important;
+
+    }
+  }
+
   .ant-radio-button-wrapper.large {
     width: 120px;
   }

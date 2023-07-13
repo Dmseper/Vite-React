@@ -11,14 +11,17 @@ export interface Item {
   imgBase64?: string
 }
 export interface Pizza extends Item {
+  ingredients: Ingredient[]
   dough?: Dough
   size?: PizzaSize
   adds?: Ingredient[]
 }
 
+
 export interface Ingredient {
   id?: number
   name: string
+  type: string
   addPrice?: number
 }
 
