@@ -10,7 +10,10 @@ $shopping-cart: "/images/icons/shopping_cart_icon.svg";
 
 //font-colors
 $main-font-color: rgba(255, 255, 255, 0.85);
-
+$sub-font-color: rgba(33, 33, 33, 0.85);
+$sub-dark-font-color: rgba(33, 33, 33, 1);
+$hover-font-color:  rgba(238, 43, 43, 1)
+;
 //font-sizes
 $main-font-size: 18px;
 $title-font-size: 22px;
@@ -25,5 +28,12 @@ $low-transition: all 0.8s ease 0s;
 $table-row-hover-background: #414040;
 $modal-background: #242424;
 $main-background: rgba(10, 10, 10, 0.95);
+
+$button-background-primary: rgba(248, 36, 36,1);
+$button-background-primary-hover: rgba(255, 0, 0, 1);
+
+$button-background: rgba(255, 255, 255, 1);
 //borders
 $dark-border: rgba(25, 25, 25, 0.5);
+$light-border: rgba(255, 255, 255, 1);
+
