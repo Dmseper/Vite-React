@@ -1,11 +1,11 @@
 import { ChangeEvent, FC, useState } from "react"
-import { Pizza } from "../interfaces"
-// import styles from "./EditPizza.module.scss"
+import { Item } from "../interfaces.ts"
+// import styles from "./EditItem.module.scss"
 import { Button, Form, Input } from "antd"
 import encodeToBase64 from "../utils/ImgToBase64.ts"
-import { useAppSelector } from "../../hooks.ts"
-import styles from "./EditPizza.module.scss"
-import { useNavigate } from "react-router-dom"
+import styles from "./EditItem.module.scss"
+import BackButton from "../common/ui-components/back-button/BackButton.tsx"
+import { getItem } from "./edit-helpers.tsx"
 
 const initState = {
   name: "",
@@ -16,18 +16,18 @@ const initState = {
   weight: "",
 }
 
-export const EditPizza: FC = () => {
-  const navigate = useNavigate()
-  const pizza = useAppSelector((state) => state.pizzaEditStore).pizza
-  const [newPizza, setNewPizza] = useState<Pizza>(
-    pizza.name ? { ...pizza, image: "pizza-img" } : initState
+export const EditItem: FC = () => {
+  const item = getItem()
+
+  const [newItem, setNewItem] = useState<Item>(
+    item.name ? { ...item, image: "item-img" } : initState
   )
-  const [img, setImg] = useState(pizza.imgBase64 ?? "")
+  const [img, setImg] = useState(item.imgBase64 ?? "")
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
-    setNewPizza({
-      ...newPizza,
+    setNewItem({
+      ...newItem,
       [name]: value,
     })
   }
@@ -36,12 +36,12 @@ export const EditPizza: FC = () => {
 
   const handleUploadFile = async (event: ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files?.[0]) {
-      setNewPizza({ ...newPizza, image: "" })
+      setNewItem({ ...newItem, image: "" })
       return
     }
 
     const fileName = event.target.files?.[0].name ?? ""
-    setNewPizza({ ...newPizza, image: fileName })
+    setNewItem({ ...newItem, image: fileName })
 
     const imgInBase64 = await encodeToBase64((event.target as HTMLInputElement).files![0])
     setImg(imgInBase64)
@@ -66,23 +66,19 @@ export const EditPizza: FC = () => {
     setImg("")
   }
 
-  const typeEditButton = () => (pizza.name ? "Update" : "Add")
+  const typeEditButton = () => (item.name ? "Update" : "Add")
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.backWrapper}>
-        <span
-          className={styles.back}
-          onClick={() => navigate("/handbook")}
-        >
-          Back
-        </span>
-      </div>
+      <BackButton
+        position="right"
+        linkTo="/handbook"
+      />
       <div className={styles.editCard}>
         <Form
           {...layout}
           form={form}
-          initialValues={newPizza}
+          initialValues={newItem}
           onFinish={onFinish}
           labelCol={{ flex: "200px" }}
           labelAlign="left"
@@ -95,7 +91,7 @@ export const EditPizza: FC = () => {
           >
             <Input
               onChange={handleChange}
-              value={newPizza.name}
+              value={newItem.name}
             />
           </Form.Item>
           <Form.Item
@@ -105,7 +101,7 @@ export const EditPizza: FC = () => {
           >
             <Input
               onChange={handleChange}
-              value={newPizza.price}
+              value={newItem.price}
             />
           </Form.Item>
           <Form.Item
@@ -116,7 +112,7 @@ export const EditPizza: FC = () => {
             <div>
               <Input
                 onClick={handleClickUpload}
-                value={newPizza.image}
+                value={newItem.image}
                 placeholder="image"
               />
 
@@ -136,7 +132,7 @@ export const EditPizza: FC = () => {
           >
             <Input
               onChange={handleChange}
-              value={newPizza.weight}
+              value={newItem.weight}
             />
           </Form.Item>
           <Form.Item
@@ -145,7 +141,7 @@ export const EditPizza: FC = () => {
           >
             <Input
               onChange={handleChange}
-              value={newPizza.description}
+              value={newItem.description}
             />
           </Form.Item>
 
@@ -169,7 +165,7 @@ export const EditPizza: FC = () => {
         {img ? (
           <img
             src={img}
-            alt={newPizza?.image}
+            alt={newItem?.image}
             style={{ width: "300px", borderRadius: "100%" }}
           />
         ) : (

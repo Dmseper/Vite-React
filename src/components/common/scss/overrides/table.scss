@@ -46,13 +46,30 @@
 
       &:hover {
         border-color: $main-font-color;
-        background: $modal-background;
       }
     }
 
     .ant-pagination-item-active {
       border-color: $main-font-color;
       background: $modal-background;
+    }
+    .ant-pagination-prev {
+      transition: $fast-transition;
+      &:hover {
+        scale: 1.2;
+      }
+    }
+    .ant-pagination-next {
+      transition: $fast-transition;
+      &:hover {
+        scale: 1.2;
+      }
+    }
+    .ant-pagination-disabled {
+      transition: $fast-transition;
+      &:hover {
+        scale: 1;
+      }
     }
   }
 }

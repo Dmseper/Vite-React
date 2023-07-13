@@ -1,0 +1,26 @@
+@import "src/components/common/scss/constants";
+
+.backWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.center {
+  justify-content: center;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.back {
+  padding: 0 20px;
+  font-family: $headers-font;
+  font-size: $headers-font-size;
+  cursor: pointer;
+  transition: $fast-transition;
+  &:hover {
+    scale: 1.2;
+  }
+}

@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import editPizzaReducer from "./EditPizza.slice.ts"
 import pizzasListReducer from "./PizzasList.slice.ts"
 import pizzasCartReducer from "./PizzasCart.slice.ts"
+import itemTypeReducer from "./ChosenItemType.ts"
 
 import {
   persistStore,
@@ -23,7 +24,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
   pizzaEditStore: editPizzaReducer,
   pizzasListStore: pizzasListReducer,
-  pizzasCartStore: pizzasCartReducer
+  pizzasCartStore: pizzasCartReducer,
+  itemTypeStore: itemTypeReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

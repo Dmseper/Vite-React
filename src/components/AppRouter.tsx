@@ -1,5 +1,5 @@
 import { PizzasDisplay } from "../components/pizzas-display/PizzasDisplay"
-import { EditPizza } from "../components/edit-pizza-form/EditPizza"
+import { EditItem } from "./edit-pizza-form/EditItem"
 import { Routes, Route } from "react-router-dom"
 import HandBook from "./handbook/HandBook"
 
@@ -12,8 +12,8 @@ const AppRouter = () => {
           element={<PizzasDisplay />}
         />
         <Route
-          path="/edit-pizza"
-          element={<EditPizza />}
+          path="/edit-item"
+          element={<EditItem />}
         />
         <Route
           path="/handbook"

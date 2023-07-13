@@ -7,13 +7,15 @@ interface PropType {
 
 export default function ItemTitle({ item }: PropType) {
   return (
-    <div className={classes.pizzaTitle}>
-      <img
-        className={classes.pizzaImage}
-        src={item.imgBase64}
-        alt={item.name}
-      />
-      <span>{item.name}</span>
-    </div>
+    item.name && (
+      <div className={classes.itemTitle}>
+        <img
+          className={classes.itemImage}
+          src={item.imgBase64}
+          alt={item.name}
+        />
+        <span>{item.name}</span>
+      </div>
+    )
   )
 }
