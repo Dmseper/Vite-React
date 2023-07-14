@@ -4,6 +4,7 @@ import ItemControls from "./ItemControls.tsx"
 import ItemTitle from "./ItemTitle.tsx"
 import { Item } from "../interfaces.ts"
 import { PaginationProps } from "antd"
+import { emptyItem } from "../models.ts"
 
 export interface DataType {
   item: Item
@@ -24,7 +25,7 @@ export const columns: ColumnsType<DataType> = [
     width: "150px",
     align: "center",
     render: (_: any, record: DataType) =>
-      record.item.id ? (
+      record.item.name ? (
         <ItemControls item={record.item} />
       ) : (
         <div className={classes.emptyRow} />
@@ -33,24 +34,17 @@ export const columns: ColumnsType<DataType> = [
 ]
 
 export const ROWS_PER_PAGE = 6
-const emptyRow: Item = {
-  id: 0,
-  name: "",
-  price: "",
-  description: "",
-  weight: "",
-  imgBase64: "",
-}
+
 export const getTableData = (itemList: Item[]): DataType[] => {
   const tableData: DataType[] = itemList.map((item) => ({
     item,
-    key: item.id!,
+    key: item.id ? item.id : new Date().getTime(),
   }))
   const emptyRowsAmount = ROWS_PER_PAGE - (tableData.length % ROWS_PER_PAGE)
   if (emptyRowsAmount > 0 && emptyRowsAmount < 6) {
-    for (let counter = 0; counter < emptyRowsAmount; counter++) {
+    for (let counter = 1; counter <= emptyRowsAmount; counter++) {
       tableData.push({
-        item: emptyRow,
+        item: emptyItem,
         key: new Date().getTime() + counter,
       })
     }

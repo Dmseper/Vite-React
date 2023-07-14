@@ -11,7 +11,7 @@ const initialState: ItemState = {
 };
 
 const editItemSlice = createSlice({
-  name: 'pizzaEdit',
+  name: 'itemEdit',
   initialState,
   reducers: {
     setEditItem(state, action: PayloadAction<Item>) {

@@ -1,6 +1,6 @@
 @import "src/components/common/scss/constants";
 
-.pizza {
+.item {
   background-color: $main-background;
   min-height: 400px;
   min-width: 280px;
@@ -16,22 +16,22 @@
   transition: $medium-transition;
 }
 
-.pizza.selected {
+.item.selected {
   border: 2px solid $main-background;
   box-shadow: 0 0 5px 2px $button-background-primary-hover;
 }
 
-.pizza > img {
+.item > img {
   width: 300px;
   border-radius: 100%;
 }
 
-.pizzaTittle {
+.itemTittle {
   font-family: $logo-font;
   font-size: $headers-font-size;
 }
 
-.pizzaControllers {
+.itemControllers {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -63,5 +63,4 @@ img {
 }
 
 .selectors {
-
 }

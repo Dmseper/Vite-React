@@ -6,21 +6,21 @@ import encodeToBase64 from "../utils/ImgToBase64.ts"
 import styles from "./EditItem.module.scss"
 import BackButton from "../common/ui-components/back-button/BackButton.tsx"
 import { getItem } from "./edit-helpers.tsx"
-
-const initState = {
-  name: "",
-  price: "",
-  image: "",
-  imgBase64: "",
-  description: "",
-  weight: "",
-}
+import { emptyItem } from "../models.ts"
+import { useAppDispatch } from "../../hooks.ts"
+import {
+  addItemToItemsList,
+  deleteItemFromItemList,
+} from "../../store/ItemList.slice.ts"
+import { useNavigate } from "react-router-dom"
 
 export const EditItem: FC = () => {
+  const dispatch = useAppDispatch()
+
   const item = getItem()
 
   const [newItem, setNewItem] = useState<Item>(
-    item.name ? { ...item, image: "item-img" } : initState
+    item.name ? { ...item, image: "item-img" } : emptyItem
   )
   const [img, setImg] = useState(item.imgBase64 ?? "")
 
@@ -32,7 +32,8 @@ export const EditItem: FC = () => {
     })
   }
 
-  const handleClickUpload = () => (document.querySelector(".upload-file") as HTMLElement).click()
+  const handleClickUpload = () =>
+    (document.querySelector(".upload-file") as HTMLElement).click()
 
   const handleUploadFile = async (event: ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files?.[0]) {
@@ -43,7 +44,9 @@ export const EditItem: FC = () => {
     const fileName = event.target.files?.[0].name ?? ""
     setNewItem({ ...newItem, image: fileName })
 
-    const imgInBase64 = await encodeToBase64((event.target as HTMLInputElement).files![0])
+    const imgInBase64 = await encodeToBase64(
+      (event.target as HTMLInputElement).files![0]
+    )
     setImg(imgInBase64)
   }
 
@@ -57,8 +60,15 @@ export const EditItem: FC = () => {
     wrapperCol: {},
   }
 
+  const navigate = useNavigate()
   const onFinish = (values: any) => {
-    console.log(values)
+    dispatch(deleteItemFromItemList(newItem.name))
+    const savingItem: Item = {
+      ...values,
+      imgBase64: img,
+    }
+    dispatch(addItemToItemsList(savingItem))
+    navigate("/handbook")
   }
 
   const onReset = () => {
@@ -66,14 +76,11 @@ export const EditItem: FC = () => {
     setImg("")
   }
 
-  const typeEditButton = () => (item.name ? "Update" : "Add")
+  const typeEditButton = item.name ? "Update" : "Add"
 
   return (
     <div className={styles.wrapper}>
-      <BackButton
-        position="right"
-        linkTo="/handbook"
-      />
+      <BackButton position="right" linkTo="/handbook" />
       <div className={styles.editCard}>
         <Form
           {...layout}
@@ -84,31 +91,13 @@ export const EditItem: FC = () => {
           labelAlign="left"
           wrapperCol={{ flex: 1 }}
         >
-          <Form.Item
-            name="name"
-            label="Name"
-            rules={[{ required: true }]}
-          >
-            <Input
-              onChange={handleChange}
-              value={newItem.name}
-            />
+          <Form.Item name="name" label="Name" rules={[{ required: true }]}>
+            <Input onChange={handleChange} value={newItem.name} />
           </Form.Item>
-          <Form.Item
-            name="price"
-            label="Price"
-            rules={[{ required: true }]}
-          >
-            <Input
-              onChange={handleChange}
-              value={newItem.price}
-            />
+          <Form.Item name="price" label="Price" rules={[{ required: true }]}>
+            <Input onChange={handleChange} value={newItem.price} />
           </Form.Item>
-          <Form.Item
-            name="image"
-            label="Image"
-            rules={[{ required: true }]}
-          >
+          <Form.Item name="image" label="Image" rules={[{ required: true }]}>
             <div>
               <Input
                 onClick={handleClickUpload}
@@ -125,24 +114,11 @@ export const EditItem: FC = () => {
               />
             </div>
           </Form.Item>
-          <Form.Item
-            name="weight"
-            label="Weight"
-            rules={[{ required: true }]}
-          >
-            <Input
-              onChange={handleChange}
-              value={newItem.weight}
-            />
+          <Form.Item name="weight" label="Weight" rules={[{ required: true }]}>
+            <Input onChange={handleChange} value={newItem.weight} />
           </Form.Item>
-          <Form.Item
-            name="discription"
-            label="Description"
-          >
-            <Input
-              onChange={handleChange}
-              value={newItem.description}
-            />
+          <Form.Item name="description" label="Description">
+            <Input onChange={handleChange} value={newItem.description} />
           </Form.Item>
 
           <Form.Item {...tailLayout}>
@@ -151,12 +127,9 @@ export const EditItem: FC = () => {
               htmlType="submit"
               style={{ marginRight: "10px" }}
             >
-              {typeEditButton()}
+              {typeEditButton}
             </Button>
-            <Button
-              htmlType="button"
-              onClick={onReset}
-            >
+            <Button htmlType="button" onClick={onReset}>
               Reset
             </Button>
           </Form.Item>
