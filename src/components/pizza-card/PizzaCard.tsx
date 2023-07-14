@@ -1,11 +1,13 @@
-import {FC} from "react";
-import {Pizza} from "../interfaces";
+import {FC, useState} from "react";
+import {Ingredient, Pizza} from "../interfaces";
 import styles from "./PizzaCard.module.scss"
 import {useAppDispatch, useAppSelector} from "../../hooks.ts";
 import {Button, Radio} from "antd";
-import {addPizzaToPizzasCart, deletePizzaFromPizzasCart} from "../../store/PizzasCart.slice.ts";
 import {DOUGH, PIZZABASE, PIZZASIZENUMBER} from "../enums.ts";
-import { PlusOutlined, MinusOutlined } from "@ant-design/icons"
+import {MinusOutlined, PlusOutlined} from "@ant-design/icons"
+import AddIngredientsModal from "./AddIngredientsModal.tsx";
+import AddRemoveControllers from "../common/ui-components/add-remove-controller/AddRemoveControllers.tsx";
+import {dataPizzas} from "../../DataPizzas.ts";
 
 interface PizzaCards {
     pizza: Pizza
@@ -14,29 +16,69 @@ interface PizzaCards {
 export const PizzaCard: FC<PizzaCards> = ({pizza}) => {
 
     const dispatch = useAppDispatch()
-
-    const pizzas = useAppSelector(state => state.pizzasCartStore).pizzasInCart
-
+    const [counter,setCounter] = useState(0)
+    // const pizzas = useAppSelector(state => state.CartStore).pizzasInCart
+    const pizzas =[...dataPizzas] as Pizza[]
     const countPizzas = (pizzaName: string): number => {
-        return pizzas.filter(pizzaItem => pizzaItem.name === pizzaName).length
+        return 10
+        // return pizzas.filter(pizzaItem => pizzaItem.name === pizzaName).length
     }
 
 
     const removePizza = (pizzaName: string) => {
 
-        dispatch(deletePizzaFromPizzasCart(pizzaName))
+
     }
     const addPizza = (pizza: Pizza) => {
-        dispatch(addPizzaToPizzasCart(pizza))
+
     }
+    const onFinish = (values: any) => {
+        console.log('Received values of form: ', values);
+    };
+
     return (
         <>
+
+            {/*<Form*/}
+            {/*    name="validate_other"*/}
+            {/*    onFinish={onFinish}*/}
+            {/*    style={{ maxWidth: 600 }}*/}
+            {/*>*/}
+
+            {/*    <Form.Item*/}
+            {/*        name="radio-button"*/}
+            {/*        label="Radio.Button"*/}
+            {/*        rules={[{ required: true, message: 'Please pick an item!' }]}*/}
+            {/*    >*/}
+            {/*        <Radio.Group>*/}
+            {/*            <Radio.Button value="a">item 1</Radio.Button>*/}
+            {/*            <Radio.Button value="b">item 2</Radio.Button>*/}
+            {/*            <Radio.Button value="c">item 3</Radio.Button>*/}
+            {/*        </Radio.Group>*/}
+            {/*    </Form.Item>*/}
+
+
+            {/*    <Form.Item wrapperCol={{ span: 12, offset: 6 }}>*/}
+            {/*        <Space>*/}
+            {/*            <Button type="primary" htmlType="submit">*/}
+            {/*                Submit*/}
+            {/*            </Button>*/}
+            {/*            <Button htmlType="reset">reset</Button>*/}
+            {/*        </Space>*/}
+            {/*    </Form.Item>*/}
+            {/*</Form>*/}
+
+
             <div className={`${styles.pizza} && ${countPizzas(pizza.name) ? styles.selected : ""}`}>
                 <img src={pizza.imgBase64} alt={pizza.image}/>
                 <span className={styles.pizzaTittle}> {pizza.name}</span>
-                <span>{pizza.price} $ / {pizza.weight} g.</span>
+                <span>{pizza.ingredients?.map((item: Ingredient, index: number) => {
+                    return `${item.name.toLowerCase()}` + `${index === pizza.ingredients!.length - 1 ? "" : " / "}`
+                })
+                }</span>
+                <div className=""><AddIngredientsModal/></div>
 
-                <div className=""></div>
+
 
                 <Radio.Group defaultValue="a" buttonStyle="solid">
                     <Radio.Button value="b">{PIZZASIZENUMBER.Small}</Radio.Button>
@@ -52,17 +94,10 @@ export const PizzaCard: FC<PizzaCards> = ({pizza}) => {
                     <Radio.Button value="a" className={"large"}>{DOUGH.THICK}</Radio.Button>
                     <Radio.Button value="b" className={"large"}>{DOUGH.THIN}</Radio.Button>
                 </Radio.Group>
-                <div className={styles.pizzaControllers}>
-                    <Button htmlType="button" onClick={() => removePizza(pizza.name)}>
 
-                        <div className={styles.icons}><MinusOutlined /></div>
 
-                    </Button>
-                    <span className={styles.counter}>{countPizzas(pizza.name)}</span>
 
-                    <Button type="primary" htmlType="button" onClick={() => addPizza(pizza)}>
-                        <div className={styles.icons}><PlusOutlined /></div>
-                    </Button></div>
+                <AddRemoveControllers quantity={counter}/>
             </div>
         </>
     )

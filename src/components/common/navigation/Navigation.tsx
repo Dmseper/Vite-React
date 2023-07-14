@@ -2,7 +2,7 @@ import Menu from "../menu/Menu"
 import SignIn from "../authorization/SignIn"
 import styles from "./Navigation.module.scss"
 import {Tooltip} from "antd"
-import {Cart} from "../../pizzas-cart/Cart.tsx";
+import {Cart} from "../../items-cart/Cart.tsx";
 
 const WorkingTimeContent = () => {
     return (
