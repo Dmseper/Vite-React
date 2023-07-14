@@ -2,8 +2,8 @@ import classes from "./HandBook.module.scss"
 import { Space } from "antd"
 import { useNavigate } from "react-router-dom"
 import { useAppDispatch } from "../../hooks.ts"
-import { setEditPizza } from "../../store/EditPizza.slice.ts"
-import { deletePizzaFromPizzaList } from "../../store/PizzasList.slice.ts"
+import { setEditItem } from "../../store/EditItem.slice.ts"
+import { deleteItemFromItemList } from "../../store/ItemList.slice.ts"
 import { Item } from "../interfaces.ts"
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons"
 import ModalConfirmation from "../common/modal-confirmation/ModalConfirmation.tsx"
@@ -18,12 +18,12 @@ export default function ItemControls({ item }: PropType) {
   const dispatch = useAppDispatch()
 
   const handleEdit = (item: Item) => {
-    dispatch(setEditPizza(item))
+    dispatch(setEditItem(item))
     navigate("/edit-item")
   }
 
   const handleDelete = (itemName: string) => {
-    dispatch(deletePizzaFromPizzaList(itemName))
+    dispatch(deleteItemFromItemList(itemName))
   }
 
   const [modalOpen, setModalOpen] = useState(false)

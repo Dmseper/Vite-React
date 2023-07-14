@@ -1,39 +1,40 @@
-import { ROLES } from "./enums"
-import { Dough, PizzaSize } from "./types"
+import { ROLES } from "./enums";
+import { Dough, ItemType, PizzaSize } from "./types";
 
 export interface Item {
-  id?: number
-  name: string
-  price: number | string
-  description?: string
-  weight?: number | string
-  image?: string
-  imgBase64?: string
+  id?: number;
+  name: string;
+  price: number | string;
+  description?: string;
+  weight?: number | string;
+  image?: string;
+  imgBase64?: string;
+  type?: ItemType;
 }
 export interface Pizza extends Item {
-  ingredients: Ingredient[]
-  dough?: Dough
-  size?: PizzaSize
-  adds?: Ingredient[]
+  ingredients: Ingredient[];
+  dough?: Dough;
+  size?: PizzaSize;
+  adds?: Ingredient[];
 }
 
 
 export interface Ingredient {
-  id?: number
-  name: string
-  type: string
-  addPrice?: number
+  id?: number;
+  name: string;
+  type: ItemType;
+  addPrice?: number;
 }
 
 
-export interface PizzasList {
-  pizzasList: Pizza[]
+export interface ItemList {
+  itemList: Item[];
 }
 
 export interface Menu {
-  id: number
-  title: string
-  role: ROLES
-  link: string
-  isActive: boolean
+  id: number;
+  title: string;
+  role: ROLES;
+  link: string;
+  isActive: boolean;
 }

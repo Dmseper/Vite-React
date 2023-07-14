@@ -1,8 +1,8 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit"
-import editPizzaReducer from "./EditPizza.slice.ts"
-import pizzasListReducer from "./PizzasList.slice.ts"
-import pizzasCartReducer from "./PizzasCart.slice.ts"
-import itemTypeReducer from "./ChosenItemType.ts"
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import editItemReducer from "./EditItem.slice.ts";
+import pizzasListReducer from "./ItemList.slice.ts";
+import pizzasCartReducer from "./PizzasCart.slice.ts";
+import itemTypeReducer from "./ChosenItemType.ts";
 
 import {
   persistStore,
@@ -13,22 +13,22 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist"
-import storage from "redux-persist/lib/storage"
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
   key: "root",
   storage,
-}
+};
 
 const rootReducer = combineReducers({
-  pizzaEditStore: editPizzaReducer,
+  itemEditStore: editItemReducer,
   pizzasListStore: pizzasListReducer,
   pizzasCartStore: pizzasCartReducer,
   itemTypeStore: itemTypeReducer,
-})
+});
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
@@ -38,10 +38,10 @@ const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-})
-export default store
+});
+export default store;
 
-export const persistor = persistStore(store)
+export const persistor = persistStore(store);
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

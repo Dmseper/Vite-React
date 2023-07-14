@@ -24,7 +24,11 @@ export const columns: ColumnsType<DataType> = [
     width: "150px",
     align: "center",
     render: (_: any, record: DataType) =>
-      record.item.id ? <ItemControls item={record.item} /> : <div className={classes.emptyRow} />,
+      record.item.id ? (
+        <ItemControls item={record.item} />
+      ) : (
+        <div className={classes.emptyRow} />
+      ),
   },
 ]
 
@@ -38,9 +42,12 @@ const emptyRow: Item = {
   imgBase64: "",
 }
 export const getTableData = (itemList: Item[]): DataType[] => {
-  const tableData: DataType[] = itemList.map((item) => ({ item, key: item.id! }))
+  const tableData: DataType[] = itemList.map((item) => ({
+    item,
+    key: item.id!,
+  }))
   const emptyRowsAmount = ROWS_PER_PAGE - (tableData.length % ROWS_PER_PAGE)
-  if (emptyRowsAmount) {
+  if (emptyRowsAmount > 0 && emptyRowsAmount < 6) {
     for (let counter = 0; counter < emptyRowsAmount; counter++) {
       tableData.push({
         item: emptyRow,
@@ -51,7 +58,11 @@ export const getTableData = (itemList: Item[]): DataType[] => {
   return tableData
 }
 
-export const paginationItemRender: PaginationProps["itemRender"] = (_, type, originalElement) => {
+export const paginationItemRender: PaginationProps["itemRender"] = (
+  _,
+  type,
+  originalElement
+) => {
   if (type === "prev") {
     return <span className={classes.pagination}>Prev</span>
   }
