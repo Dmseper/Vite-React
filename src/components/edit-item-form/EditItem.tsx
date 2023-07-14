@@ -66,7 +66,10 @@ export const EditItem: FC = () => {
     const savingItem: Item = {
       ...values,
       imgBase64: img,
+      id: new Date().getTime(),
     }
+
+    console.log(savingItem)
     dispatch(addItemToItemsList(savingItem))
     navigate("/handbook")
   }
